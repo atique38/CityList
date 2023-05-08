@@ -24,9 +24,11 @@ public class CityList {
     }
 
     /**
-     * This returns a sorted list of cities
+     * this method sorts cities according to city or province name
+     * @param name
+     * sort by city if name="city", otherwise sort by province
      * @return
-     *      Return the sorted list of cities
+     * sorted cityList
      */
     public List<City> getCities(String name) {
         List<City> cityList = cities;
@@ -47,6 +49,11 @@ public class CityList {
         return cityList;
     }
 
+    /**
+     * this method delete city if exists otherwise throws exception
+     * @param city
+     * city to be deleted
+     */
     public void delete(City city) {
         if (!cities.contains(city)) {
             throw new IllegalArgumentException();
@@ -54,6 +61,11 @@ public class CityList {
         cities.remove(city);
     }
 
+    /**
+     * this method count the number of cities in cityList
+     * @return
+     * total number of cities
+     */
     public int count(){
         return cities.size();
     }

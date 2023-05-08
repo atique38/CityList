@@ -15,6 +15,7 @@ public class CityListTest {
         return new City("Edmonton", "AB");
     }
 
+
     @Test
     public void testAdd() {
         CityList cityList = mockCityList();
