@@ -76,4 +76,38 @@ public class MainActivityTest {
         Espresso.pressBack(); //Back button
     }
 
+    @Test
+    public void uiTest()
+    {
+        onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Khulna")); //Type a city name
+        onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
+
+        onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Dhaka")); //Type a city name
+        onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
+
+        onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Rajshahi")); //Type a city name
+        onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
+
+        onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click());
+        onView(withId(R.id.show_activity)).check(matches(isDisplayed()));
+        onView(withText("Khulna")).check(matches(isDisplayed()));
+        onView(withId(R.id.back_btn)).perform(click());
+
+
+        onView(withId(R.id.city_list)).check(matches(isDisplayed()));
+
+        onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(1).perform(click());
+        onView(withId(R.id.show_activity)).check(matches(isDisplayed()));
+        onView(withText("Dhaka")).check(matches(isDisplayed()));
+        onView(withId(R.id.back_btn)).perform(click());
+
+        onView(withId(R.id.city_list)).check(matches(isDisplayed()));
+
+
+    }
+
+
 }
